@@ -1,12 +1,17 @@
 const CryptoJS = require('crypto-js') // Standard JavaScript cryptography library
 
 
-class Ssignaturer {
+class Signaturer {
   apiKey = '';
   apiSecret = '';
   apiPath = '';
   body = {};
   nonce = '';
+
+
+  getApiUrl(){
+    return `https://api.bitfinex.com/${this.apiPath}`
+  }
 
   genNonce() {
     this.nonce = (Date.now() * 1000).toString();
@@ -31,3 +36,5 @@ class Ssignaturer {
   }
 
 }
+
+module.exports = Signaturer;
