@@ -16,11 +16,26 @@ async function genSignatureByBridge() {
     return sg;
 }
 
-async function insertSignatureToVar(){
+async function insertSignatureToVar() {
     const sg = await genSignatureByBridge();
-     sg.genSignHeader();
+    const h = sg.genSignHeader();
+    const rhlv = await bridge.getVar('rhlv').val;
+    const rhkey = await bridge.getVar('rhkey').val;
+    bridge.markVar({
+        lv: rlv,
+        key: rkey,
+        val: h
+    });
+    const rulv = await bridge.getVar('rulv').val;
+    const rukey = await bridge.getVar('rukey').val;
+    bridge.markVar({
+        lv: rulv,
+        key: rukey,
+        val: sg.getApiUrl()
+    });
 }
 
 module.exports = {
-    fromBridge: genSignatureByBridge
+    fromBridge: genSignatureByBridge,
+    insertSignatureToVar:insertSignatureToVar
 };
