@@ -20,6 +20,6 @@ function insertSignatureToVar(headerKey,urlKey) {
 }
 
 module.exports = {
-    fromBridge: genSignatureByBridge,
+    genSignatureByBridge: genSignatureByBridge,
     insertSignatureToVar:insertSignatureToVar
 };
