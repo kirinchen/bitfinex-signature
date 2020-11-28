@@ -12,7 +12,7 @@ function genSignatureByBridge() {
     return sg;
 }
 
-async function insertSignatureToVar(headerKey,urlKey) {
+function insertSignatureToVar(headerKey,urlKey) {
     const sg = genSignatureByBridge();
     const h = sg.genSignHeader();
     bridge.set(headerKey,h);
