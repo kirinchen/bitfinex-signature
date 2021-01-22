@@ -8,7 +8,7 @@ function genSignatureByBridge() {
     sg.apiKey =  bridge.get('bitfinex.key');
     sg.apiSecret =  bridge.get('bitfinex.secret');
     sg.apiPath =  bridge.get('apiPath');
-    sg.body =  bridge.get('apiBody');
+    sg.bodyJSON =  bridge.get('apiBodyJSON');
     return sg;
 }
 

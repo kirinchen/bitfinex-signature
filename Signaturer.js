@@ -5,7 +5,7 @@ class Signaturer {
   apiKey = '';
   apiSecret = '';
   apiPath = '';
-  body = {};
+  bodyJSON = '';
   nonce = '';
 
 
@@ -19,7 +19,7 @@ class Signaturer {
   }
 
   genPlain() {
-    return `/api/${this.apiPath}${this.genNonce()}${JSON.stringify(this.body)}`
+    return `/api/${this.apiPath}${this.genNonce()}${this.bodyJSON}`
   }
 
   genSignature() {
